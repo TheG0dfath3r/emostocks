@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './App.css';
-import { Card,Grid,Badge,Spacer,Tabs,Page } from '@geist-ui/react'
+import { Card,Grid,Badge,Spacer,Tabs,Page,Image } from '@geist-ui/react'
+import List from './list';
 
 function Headlines() {
 
@@ -43,6 +44,7 @@ function Headlines() {
   }
 }} style={{textDecoration:'none'}}>
        <Card shadow style={{textAlign:"left"}}>
+       <Image height={400} src={news.imageURL} />
      <h4>{news.title}</h4>
      <p style={{width:'95%'}}>{news.news}</p>
    <Badge type="success">Positive</Badge> <Spacer y={.5} />
@@ -54,7 +56,9 @@ function Headlines() {
      
      
      </Grid.Container></Tabs.Item>
-
+     <Tabs.Item label="Stocks" value="2">
+         <List/>
+     </Tabs.Item>
 </Tabs>
 </Page.Content>
 </Page>

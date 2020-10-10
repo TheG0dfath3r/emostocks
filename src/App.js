@@ -5,12 +5,14 @@ import { Card,Grid,Badge,Spacer,Tabs,Page } from '@geist-ui/react'
 import Story from './story';
 import Headlines from './headlines';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './login';
 
 function App() {
   return (
     <main>
             <Switch>
-                <Route path="/" component={Headlines} exact />
+                <Route path="/" component={Login} exact />
+                <Route path="/news" component={Headlines} exact />
                 <Route path="/story" component={Story} />
             
             </Switch>
