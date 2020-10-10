@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Story from './story';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Headlines from './headlines';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+  <App />
+  </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

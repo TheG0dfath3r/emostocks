@@ -1,25 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Card,Grid,Badge,Spacer,Tabs,Page } from '@geist-ui/react'
+import Story from './story';
+import Headlines from './headlines';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+            <Switch>
+                <Route path="/" component={Headlines} exact />
+                <Route path="/story" component={Story} />
+            
+            </Switch>
+        </main>
+    
   );
 }
 
