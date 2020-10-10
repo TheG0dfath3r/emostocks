@@ -1,0 +1,2 @@
+# emostocks
+Money is GOD
