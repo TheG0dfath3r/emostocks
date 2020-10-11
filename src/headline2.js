@@ -13,7 +13,7 @@ function Related(props) {
     useEffect(()=>{
       
         axios.get(`https://emostock.herokuapp.com/news/business?keyword=${props.location.state.keyword}`).then((res)=>{
-
+      console.log(res)
         setData(res.data.articles)
  
 
@@ -48,7 +48,7 @@ function Related(props) {
   }
 }} style={{textDecoration:'none'}}>
        <Card shadow style={{textAlign:"left"}}>
-       <Image height={400} src={news.imageURL} />
+       <Image height={400} src={news.urlToImage} />
      <h4>{news.title}</h4>
      <p style={{width:'95%'}}>{news.content}</p>
    

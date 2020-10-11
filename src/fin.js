@@ -7,17 +7,23 @@ import { ArrowUp } from '@geist-ui/react-icons'
 
 import Axios from 'axios';
 
-function Story(props) {
+function Fin(props) {
 
   const [data, setData] = useState({})
 
   useEffect(()=>{
-Axios.post('https://emostock.herokuapp.com/analyze',props.location.state.data).then((res)=>{
-  console.log(res)
-  setData(res.data)
-},[])
 
-  })
+   
+    Axios.post('https://emostock.herokuapp.com/report', localStorage.getItem('file'), {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+    }).then((res)=>{console.log(res)})
+    
+    
+        }
+
+  )
   if(data.entities){
     return (
     
@@ -55,8 +61,8 @@ Axios.post('https://emostock.herokuapp.com/analyze',props.location.state.data).t
      );
   }
   else{
-   return <Page><Spinner /></Page>
+   return (<div style={{display:'flex', alignItems:'center', justifyContent:'center', height:'80vh',width:'100%'}}><Spinner /></div>)
   }
 }
 
-export default Story;
+export default Fin;

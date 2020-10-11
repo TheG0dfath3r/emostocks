@@ -7,6 +7,7 @@ import Headlines from './headlines';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './login';
 import Related from './headline2';
+import Fin from './fin';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path="/news" component={Headlines} exact />
                 <Route path="/story" component={Story} />
                 <Route path="/related" component={Related} />
+                <Route path="/fin" component={Fin} />
             
             </Switch>
         </main>

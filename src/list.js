@@ -53,14 +53,14 @@ Axios.post('https://emostock.herokuapp.com/analyze/all').then((res)=>{
         
         <Card shadow>
            <div style={{width:'95%'}}>
-           <Link 
-           style={{textDecoration:'none'}}
+            <p style={{textDecoration:'none'}}><Link 
+           style={{textDecoration:'none',color:'black'}}
            to={{
   pathname: '/related',
   state: {
     keyword: com.companyName.split(' ')[0]
   }
-}}> <p style={{textDecoration:'none'}}>{com.companyName}</p></Link>
+}}>{com.companyName}</Link></p>
             { com.sentiment.label==='positive' ?  <ArrowUpCircle style={{float:'right'}}/> : <ArrowDownCircle style={{float:'right'}}/> }
             <Button auto type="success-light" style={{float:'right'}} onClick={()=>track(com.companyName, com.symbol)}>Track</Button>
             </div>  </Card>
