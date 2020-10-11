@@ -4,8 +4,10 @@ import './App.css';
 import img from './plant.png'
 import { Card,Grid,Badge,Spacer,Tabs,Page,Capacity,Spinner,Input, Button,Image,Text } from '@geist-ui/react'
 import Axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 function Login(props) {
+    const history = useHistory()
     const [value, setValue] = useState({email:'',password:''})
     const changeEmail = (event)=>{
         setValue({...value,email:event.target.value})
@@ -25,9 +27,10 @@ function Login(props) {
             
             Axios(config)
             .then(function (response) {
-              console.log(JSON.stringify(response.data));
+              history.push('/news')
             })
             .catch(function (error) {
+                
               console.log(error);
             });
     }
@@ -47,7 +50,9 @@ function Login(props) {
 <Spacer/>
 <Input placeholder="Password" value={value.password} onChange={changePass}/><br/>
 <Spacer/>
-<Button shadow type="secondary" onClick={()=>post()}>Login</Button></div></Grid>
+<Button shadow type="secondary" onClick={()=>post()}>Login</Button>
+<Spacer/>
+<Button>Sign Up</Button></div></Grid>
     
   </Grid.Container>
 

@@ -7,15 +7,15 @@ import { Card,Grid,Badge,Spacer,Tabs,Page,Image } from '@geist-ui/react'
 import List from './list';
 import Report from './report';
 
-function Headlines(props) {
+function Related(props) {
 
 
     useEffect(()=>{
       
-        axios.get('https://emostock.herokuapp.com/news/business/all').then((res)=>{
+        axios.get(`https://emostock.herokuapp.com/news/business?keyword=${props.location.state.keyword}`).then((res)=>{
 
-        console.log(res.data.news.data)
-  setData(res.data.news.data)
+        setData(res.data.articles)
+ 
 
         })
   }
@@ -50,8 +50,8 @@ function Headlines(props) {
        <Card shadow style={{textAlign:"left"}}>
        <Image height={400} src={news.imageURL} />
      <h4>{news.title}</h4>
-     <p style={{width:'95%'}}>{news.news}</p>
-  
+     <p style={{width:'95%'}}>{news.content}</p>
+   
  </Card>
  </Link>
      </div>
@@ -73,4 +73,4 @@ function Headlines(props) {
   );
 }
 
-export default Headlines;
+export default Related;
